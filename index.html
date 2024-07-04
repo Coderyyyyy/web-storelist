@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        // Function to load the content from the text file and display it on the web page
+        function loadContent() {
+            fetch('storelist')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content').innerText = data;
+                })
+                .catch(error => console.error('Error fetching content:', error));
+        }
+
+        // Call the function to load content when the page loads
+        window.onload = loadContent;
+    </script>
+</body>
+</html>
+
